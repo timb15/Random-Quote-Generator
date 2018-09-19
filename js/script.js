@@ -17,7 +17,7 @@ let quotes = [
      tags: 'inspirational'
    },
    {
-     quote: "Electricty is really just organized lightning.",
+     quote: "Electricity is really just organized lightning.",
      source: 'George Carlin',
      citation: 'Comedy Show',
      year: '',
