@@ -115,7 +115,7 @@ function printQuote() {
         quoteString += '<span class="citation">,' + output[2]  + '</span>';
       } else {}
       if (quoteString[3] != '') {
-        quoteString += '<span class="citation"> ' + output[3]  + '</span>';
+        quoteString += '<span class="year"> ' + output[3]  + '</span>';
       } else {
           quoteString += '</p>'
     }
