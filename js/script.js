@@ -5,8 +5,6 @@ let quotes = [
   {
     quote: "Some People dream of success, while other people wake up and make it happen.",
     source: 'Wayne Huizenga',
-    citation: '',
-    year: '',
     tags: 'success, inspirational'
    },
    {
@@ -20,7 +18,6 @@ let quotes = [
      quote: "Electricity is really just organized lightning.",
      source: 'George Carlin',
      citation: 'Comedy Show',
-     year: '',
      tags: 'funny'
    },
    {
@@ -41,35 +38,27 @@ let quotes = [
      quote: "Why do they call it rush hour when nothing moves.",
      source: "Robin Williams",
      citation: "Comedy Show",
-     year: '',
      tags: 'funny'
    },
    {
      quote: "Design is a funny word. Some people think design means how it looks. But of course, if you did deeper, it's really how it works.",
      source: "Steve Jobs",
-     citation: '',
      year: '2005',
      tags: 'philosophical'
    },
    {
      quote: "Change your thoughts and you change the world.",
      source: "Norman Vincent Peale",
-     citation: '',
-     year: '',
      tags: 'inpspitrational. philosophical'
    },
    {
      quote: "Follow your bliss and the universe will open doors where there were only walls.",
      source: "Joseph Campbell",
-     citation: '',
-     year: '',
      tags: 'sucess, philosophical, inspirational'
    },
    {
      quote: "Winners never quit and quitters never win.",
      source: "Vince Lombardi",
-     citation: '',
-     year: '',
      tags: 'sucess, philosophical, inspirational'
 
    },
@@ -87,12 +76,10 @@ let quotes = [
 //Takes properties from a random object in "quotes" array and returns them as another array
 function getRandomQuote(arr) {
     let i = Math.floor(Math.random() * arr.length);
-    let randomQuote = [arr[i].quote, arr[i].source];
-        randomQuote.push(arr[i].citation);
-        randomQuote.push(arr[i].year);
-        randomQuote.push(arr[i].tags);
-        return randomQuote;
+    return arr[i];
+
     }
+
   //Creating function that generates numbers for random rgb background.
  function randomBackground() {
    let color = [];
@@ -102,24 +89,24 @@ function getRandomQuote(arr) {
    return color;
  }
 
-/* Uses getRandomQuote funtion and Prints quote, source and other properties (if they exist) to the index.html file.
+/*Uses getRandomQuote funtion and Prints quote, source and other properties (if they exist) to the index.html file.
     Also uses randomBackground function to generate a random color background.*/
 function printQuote() {
   let background = ''+randomBackground()+'';
     document.body.style.backgroundColor = 'rgb(' +background+ ')';
   let output = getRandomQuote(quotes);
   let quoteString = '';
-    quoteString += '<p class="quote">' + output[0] + '</p>';
-    quoteString += '<p class="source">' + output[1];
-      if (quoteString[2] != '' ) {
-        quoteString += '<span class="citation">,' + output[2]  + '</span>';
+    quoteString += '<p class="quote">' + output.quote + '</p>';
+    quoteString += '<p class="source">' + output.source;
+      if (output.citation != undefined ) {
+        quoteString += '<span class="citation">, ' + output.citation  + '</span>';
       } else {}
-      if (quoteString[3] != '') {
-        quoteString += '<span class="year"> ' + output[3]  + '</span>';
+      if (output.year != undefined) {
+        quoteString += '<span class="year">, ' + output.year  + '</span>';
       } else {
           quoteString += '</p>'
     }
-      quoteString += '<P> Tags: <span class="tags">' + output[4] + '</span)</p>';
+      quoteString += '<P> Tags: <span class="tags">' + output.tags + '</span)</p>';
       var outputDiv = document.getElementById('quote-box');
       outputDiv.innerHTML = quoteString;
       return quoteString;
